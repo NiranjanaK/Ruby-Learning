@@ -1,0 +1,189 @@
+include Math
+puts "1.Doctor\n2.Hospital\n3.Clinic\n" 
+puts "Choose Any One Option For rating :"
+puts "--------------------------------"
+choice=gets.chomp.downcase
+	case choice
+		when "1","doctor"
+		doctor=["Dr.Elango","Dr.Kumar","Dr.Geetha"]
+		doctor.each{|x| puts x}		
+		#puts "1.Dr.Elango\n2.Dr.Kumar\n3.Dr.Geetha\n"
+		puts "Choose Your Doctor :"
+		puts "------------------"
+		doc=gets.chomp	
+		puts "Rate Your Doctor[Type a number 1 to 5] :"
+		rate=gets.chomp
+		if rate.to_i>5
+		loop do
+		puts "Number Exceeds The Limit!"
+		puts "Rate Your Doctor[Type a number 1 to 5] :"
+		rate=gets.chomp
+		break if rate.to_i<=5
+		end
+		end
+		puts "Overall Rating Of Doctor is #{rate}"
+		puts "Do You Wish To Provide Detailed Rating(yes/no) :"
+		puts "***********************************************"
+		detail=gets.chomp
+			if detail=="yes"
+				puts "Let's Go For Detailed rating"
+				puts "****************************"
+				puts "Quality of diagnosis & treatment :"
+				det1=gets.chomp
+				puts "Level of Trust in Doctor :"
+				det2=gets.chomp
+				puts "Ease of setting appointment :"
+				det3=gets.chomp
+				puts "Waiting Time :"
+				det4=gets.chomp
+		
+			else
+			puts "Overall Rating Of Doctor is #{rate}"
+			end
+			if detail!="no"
+			puts "Quality of diagnosis & treatment : #{det1}"
+			puts "Level of Trust in Doctor : #{det2}"
+			puts "Ease of setting appointment : #{det3}"
+			puts "Waiting Time : #{det4}"
+			puts "-----------------------------------------------------------"
+			if det1!=0
+				p1=det1.to_f*50/100
+				puts "50% of first rating : #{p1}"
+			else
+				puts "You're Wrong!"
+			end
+			if det2!=0
+				p2=det2.to_f*40/100
+				puts "40% of second rating : #{p2}"
+			else
+				puts "You're Wrong!"
+			end
+			if det3!=0
+				p3=det3.to_f*5/100
+				puts "5% of third rating : #{p3}"
+			else
+				puts "You're Wrong!"
+			end
+			if det4!=0
+				p4=det4.to_f*5/100
+				puts "5% of fourth rating : #{p4}"
+			else
+				puts "You're Wrong!"
+			end
+			puts "------------------------------------------------------------"
+			avg_r=(p1.to_f+p2.to_f+p3.to_f+p4.to_f)/4
+			puts "Average Rating based on percentage calculated is : #{avg_r}"
+			puts "------------------------------------------------------------"
+			puts "Thank You For Reviews"
+			puts "*********************"
+			puts "Doctor Name : #{doc}"if doctor.include?doc
+			if choice.to_i==1
+			puts "Type : Doctor"
+			elsif choice.to_i==2
+			puts "Type : Hospital"
+			elsif choice.to_i==3
+			puts "Type : Clinic"
+			else
+			puts "Type : #{choice}"
+			end
+			puts "Overall Rating : #{rate}"
+			puts "Average Rating : #{avg_r}"
+			end
+		when "2","hospital","3","clinic"
+		puts "1.Apollo\n2.Vasan\n3.Shenbagam\n"
+		puts "Choose Your Hospital/Clinic :"
+		puts "---------------------------"
+		hos=gets.chomp
+		puts "Rate Your Hospital/Clinic[Type a number 1 to 5] :"
+		rate=gets.chomp
+		if rate.to_i>5
+		loop do
+		puts "Number Exceeds The Limit!"
+		puts "Rate Your Hospital/Clinic[Type a number 1 to 5] :"
+		rate=gets.chomp
+		break if rate.to_i<=5
+		end
+		end
+		puts "Overall Rating Of Hospital/Clinic is #{rate}"
+		puts "Do You Wish To provide Detailed Rating(Yes/No) :"
+		puts "***********************************************"
+		detail=gets.chomp
+			if detail=="Yes"
+				puts "Let's Go For Detailed rating"
+				puts "****************************"
+				puts "Cost :"
+				det1=gets.chomp
+				puts "Nurse & Staff :"
+				det2=gets.chomp
+				puts "Facilities & Equipment :"
+				det3=gets.chomp
+				puts "Acceptance of Insurance :"
+				det4=gets.chomp
+				puts "Hospital Rooms & Beds :"
+				det5=gets.chomp
+		
+			else
+			puts "Overall Rating Of Hospital/Clinic is #{rate}"
+			end
+			if detail!="No"
+			puts "Cost : #{det1}"
+			puts "Nurse & Staff : #{det2}"
+			puts "Facilities & Equipment : #{det3}"
+			puts "Acceptance of Insurance : #{det4}"
+			puts "Hospital Rooms & Beds : #{det5}"
+			puts "------------------------------------------------------------"
+			if det1!=0
+				p1=det1.to_f*30/100
+				puts "30% of first rating : #{p1}"
+			else
+				puts "You're Wrong!"
+			end
+			if det2!=0
+				p2=det2.to_f*30/100
+				puts "30% of second rating : #{p2}"
+			else
+				puts "You're Wrong!"
+			end
+			if det3!=0
+				p3=det3.to_f*20/100
+				puts "20% of third rating : #{p3}"
+			else
+				puts "You're Wrong!"
+			end
+			if det4!=0
+				p4=det4.to_f*5/100
+				puts "20% of fourth rating : #{p4}"
+			else
+				puts "You're Wrong!"
+			end
+			
+			avg_r=(p1.to_f+p2.to_f+p3.to_f+p4.to_f)/4
+			puts "Average Rating based on percentage calculated is : #{avg_r.round(2)}"
+			puts "--------------------------------------------------------------------"
+			puts "Thank You For Reviews"
+			puts "*********************"
+			if hos.to_i==1
+			puts "Name : Apollo"
+			elsif hos.to_i==2
+			puts "Name : Vasan"
+			elsif hos.to_i==3
+			puts "Name : Shenbagam"
+			else
+			puts "Hospital Name : #{hos}"
+			end
+			if choice.to_i==1
+			puts "Type : Doctor"
+			elsif choice.to_i==2
+			puts "Type : Hospital"
+			elsif choice.to_i==3
+			puts "Type : Clinic"
+			else
+			puts "Type : #{choice}"
+			end
+			puts "Overall Rating : #{rate}"
+			puts "Average Rating : #{avg_r.round(2)}"
+			end
+	else
+		puts "Enter Valid Choice"
+	end
+	
